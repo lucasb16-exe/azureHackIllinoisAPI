@@ -7,8 +7,9 @@ module.exports = async function (context, req) {
     //req to return array of addresses/meal preferences
     context.log('JavaScript HTTP trigger function processed a request.');
  
-    var addresses = req.body;
-    var preferences = req.body2;
+    var body = req.body;
+    var addresses = body[0];
+    var preferences = body[1];
     //var addresses = body.addresses;
 
     // var preferences = body.preferences;
