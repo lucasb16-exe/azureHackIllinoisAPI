@@ -7,9 +7,9 @@ module.exports = async function (context, req) {
     //req to return array of addresses/meal preferences
     context.log('JavaScript HTTP trigger function processed a request.');
  
-    // var body = req.body;
+    var body = req.body;
 
-    // var addresses = body.addresses;
+    var addresses = body.addresses;
 
     // var preferences = body.preferences;
 
@@ -22,7 +22,7 @@ module.exports = async function (context, req) {
 
     var preferences = ['burger', 'taco', 'ice cream'];
 
-    var addresses = ['586 water tower road south manteno', '1250 south halsted street chicago', '233 S Wacker Dr, Chicago, IL'];
+    //var addresses = ['586 water tower road south manteno', '1250 south halsted street chicago', '233 S Wacker Dr, Chicago, IL'];
     
     var addressCoordinates = [];
     
