@@ -8,7 +8,7 @@ module.exports = async function (context, req) {
     context.log('JavaScript HTTP trigger function processed a request.');
  
     var addresses = req.body;
-
+    var preferences = req.body2;
     //var addresses = body.addresses;
 
     // var preferences = body.preferences;
@@ -20,7 +20,7 @@ module.exports = async function (context, req) {
     
     const geocoder = NodeGeocoder(options);
 
-    var preferences = ['burger', 'taco', 'ice cream'];
+    //var preferences = ['burger', 'taco', 'ice cream'];
 
     //var addresses = ['586 water tower road south manteno', '1250 south halsted street chicago', '233 S Wacker Dr, Chicago, IL'];
     
@@ -47,8 +47,15 @@ function getNearbyRestaurants(lat, long, preferences)
 {
     const apiKey = "qnH0h-RxY3JAVSpweQ3A_nBknez1kbWxR06UPH_VLfMSSA1xd-2y5Nun_A5-adOtF2_X0jvuGuCjo-4ERDnS-BKZnJJKSh8D19fbIXlycODp9RZPkMZYKAAbECRxYHYx";
 
+    query = "";
+    for(const preference of preferences)
+    {
+        query += preference;
+        query += " ";
+    }
+
     let params = {
-        categories: "coffee,burgers,italian",
+        term: query + " restaurant",
         open_now: true,
         latitude: lat,
         longitude: long,
