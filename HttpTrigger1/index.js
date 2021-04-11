@@ -66,7 +66,9 @@ function getNearbyRestaurants(lat, long, preferences)
     return new Promise(function (resolve, reject) {
         yelpREST("/businesses/search", {params: params}).then(({data})=> {
             console.log("about to resolve data");
-            resolve(data);
+            var jsonRetVal = JSON.stringify(data);
+            resolve(jsonRetVal);
+            //resolve(data);
         },
             (error) => {reject(error)}
         );
